@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  structure-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 规则第六句逐字存在
+        run: grep -q "不改标准适配你。" ARENA-RULES.md
+      - name: 定价口径锁（恰好两档数字）
+        run: |
+          grep -q "USD 6,000 / 单" PRICING.md
+          grep -q "USD 36,000 / 年" PRICING.md
+          n=$(grep -cE "^\*\*USD " PRICING.md); test "$n" -eq 2 || { echo "价格档数量=$n 不等于2"; exit 1; }
+      - name: 关键链接文件存在
+        run: |
+          test -f samples/first-report.md
+          test -f submissions/PR-CHECKLIST.md
+          grep -q "awaiting first external submission" README.md
+      - name: 样例报告三件套完整
+        run: |
+          grep -q "cannot-tell" samples/first-report.md
+          grep -q "结构盲区声明" samples/first-report.md
+          grep -q "8/8" samples/first-report.md
