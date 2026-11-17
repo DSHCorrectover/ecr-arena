@@ -1,5 +1,7 @@
 # ECR Arena — 判定擂台
 
+[**Commercial verification engagements — USD 8,000–15,000, court-ready dossier**](https://dshcorrectover.github.io/correctover-recovery-admission/services.html) · [**Independent audit & conformance**](https://dshcorrectover.github.io/correctover-recovery-admission/services.html)
+
 > **Independent verdicts for recovery decisions. 报告可独立重放，重放不出来退款。**
 
 Our verdicts do not depend on any implementation — including our own.
